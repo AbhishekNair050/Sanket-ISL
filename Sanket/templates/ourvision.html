@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket</title>
+    <link rel="stylesheet" href="static/vision.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <div class="Desktop1">
+        <div class="Rectangle2"></div>
+        <div class="GlobalImpact">
+            <a href="impact" class="Button">Global Impact</a>
+        </div>
+        <div class="OurVision">
+            <a href="vision" class="Button">Our Vision</a>
+        </div>
+        <div class="TryNow">
+            <a href="trynow" class="Button">Sample Videos</a>
+        </div>
+        <div class="Inference">
+            <a href="inference" class="Button">Live Inference</a>
+        </div>
+        <div class="Rect1"></div>
+        <div class="ExperienceSeamlessCommunication"><b>Experience seamless communication</b></div>
+        <div class="WithOurCuttingEdge2WaySign">Enabling seamless communication, our commitment lies in developing advanced sign language recognition and translation tools. By seamlessly bridging linguistic gaps, we strive to facilitate fluid and natural interactions, fostering a world where communication is accessible and inclusive for everyone.</div>
+        <div class="Rect2"></div>
+        <div class="AnInnovativePlatform"><b>An innovative platform</b></div>
+        <div class="ConvertsRealTimeCameraInputIntoAudioOutput">As pioneers in the field, we envision an innovative platform that revolutionizes sign language recognition and translation. Our commitment is to provide a cutting-edge solution, empowering users to communicate effortlessly and inclusively, paving the way for a more accessible and interconnected world.</div>
+        
+        <!-- Content with typing animation -->
+        <div class="content">
+            <h1>Transforming</h1>
+            <p id="animatedText"></p>
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            "vision to",
+            "voice."
+        ];
+
+        const textElement = document.getElementById('animatedText');
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+
+            if (!isDeleting) {
+                // Typing
+                textElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+
+                // Finished typing current word
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1000); 
+                } else {
+                    setTimeout(type, 150); 
+                }
+            } else {
+                // Deleting
+                textElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+
+                // Finished deleting current word
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length; 
+                    setTimeout(type, 500); 
+                } else {
+                    setTimeout(type, 60); 
+                }
+            }
+        }
+
+        // Start typing animation
+        type();
+        textElement.style.color = "#E57C23";
+        textElement.style.fontWeight = "bold";
+        textElement.style.fontSize = "40px";
+        const h1Element = document.querySelector('h1');
+        h1Element.style.position = 'relative';
+        h1Element.style.zIndex = '1'; 
+        textElement.style.position = "absolute";
+        textElement.style.top = "38%"; 
+    </script>
+</body>
+</html>

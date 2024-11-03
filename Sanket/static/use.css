@@ -1,0 +1,218 @@
+body, h1, h2, h3, p, margin, padding {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+.Desktop1 {
+    width: 100%;
+    max-width: 2560px;
+    height: 100vh;
+    position: relative;
+    background: #F9FEFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Rectangle2 {
+    width: 100%;
+    height: 12%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: #1995EF;
+}
+
+.GlobalImpact{
+    width: 13%;
+    height: 6.2963%;
+    left: 2.5%;
+    top: 3.25%;
+    position: absolute;
+    color: black;
+    font-size: 120%;  
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.OurVision{
+    width: 10.9375%;
+    height: 6.2963%;
+    left: 15%;
+    top: 3.25%;
+    position: absolute;
+    color: black;
+    font-size: 120.5%;  
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.TryNow{
+    width: 10.9375%;
+    height: 6.2963%;
+    left: 25%;
+    top: 3.25%;
+    position: absolute;
+    color: black;
+    font-size: 120.5%;  
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.Use{
+    width: 10.9375%;
+    height: 6.2963%;
+    left: 33.5%;
+    top: 3.25%;
+    position: absolute;
+    color: black;
+    font-size: 120.5%;  
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.ContactUs{
+    width: 10.9375%;
+    height: 6.2963%;
+    left: 44%;
+    top: 3.25%;
+    position: absolute;
+    color: black;
+    font-size: 120.5%;  
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.Button {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #1995EF;  
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.Button:hover {
+    background-color: white;
+}
+.Welcome {
+    height: 25%;
+    left: 40%;
+    top: 17%;
+    position: absolute;
+    color: black;
+    font-size: 150%;  
+    font-weight: 200;
+    word-wrap: break-word;
+}
+
+img {
+    max-width: 80%; 
+    height: 60%;
+    margin-top: -12%; 
+    position: absolute;
+    left: 10%; 
+}
+.text {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+}
+.permanent-text {
+    position: absolute;
+    right: 3%; 
+    top: 30%; 
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+.Box{
+    width: 40%;
+    height: 40%;
+    left: 30%;
+    top: 50%;
+}
+.Rectangle2 {
+    width: 100%;
+    height: 12%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: #1995EF;
+}
+.image-text {
+    font-size: 15px;
+    position: absolute;
+    bottom: 4%; 
+    left: 8%; 
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+@media only screen and (max-width: 1080px) { .Desktop1, .Screenshot, .An 
+    { width: auto; height: auto; left: auto; top: auto; position: static; font-size: inherit; }
+    .Welcome
+    {
+        font-size: 18px;
+        top: 12%;
+        left: 25%;
+    }
+    img{
+        top:70%;
+        width: fit-content;
+        left: 10;
+    }
+    .image-text
+    {
+        font-size: 12px;
+        top: 120%;
+        left: 10;
+    }
+    .permanent-text
+    {
+        font-size: 12px;
+        top: 20%;
+        left: 10;
+        
+    }
+    .Button {
+        margin: 10px auto;
+        font-size: 8px;
+        display: inline-block;
+    }
+    .Rectangle2
+    {
+        width: 100%;
+        height: 7cqb;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background: #1995EF;
+    }
+    .GlobalImpact{
+        left : -3%; 
+        width: 100%;
+        top: 0.5%;
+    }
+    .OurVision{
+        left: 20%;
+        width: 100%;
+        top: 0.5%;
+    }
+    .TryNow
+    {
+        left: 40%;
+        width: 100%;
+        top: 0.5%;
+    }
+    .Use
+    {
+        left: 60%;
+        width: 100%;
+        top: 0.5%;
+    }
+    .ContactUs
+    {
+        left: 80%;
+        width: 100%;
+        top: 0.5%;
+    }
+}

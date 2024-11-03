@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket</title>
+    <link rel="stylesheet" href="static/impact.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <div class="Desktop1">
+        <div class="Rectangle2"></div>
+        <div class = "text1">The challenge is huge</div>
+        <div class = "text2">How to improve communication</div>
+        <div class = "text3">between deaf and hearing people?</div>
+        <div class = "GlobalImpact">
+            <a href="impact" class="Button">Global Impact</a>
+        </div>
+        <div class="OurVision">
+            <a href="vision" class="Button">Our Vision</a>
+        </div>
+        <div class="TryNow">
+            <a href="trynow" class="Button">Sample Videos</a>
+        </div>
+        <div class="Inference">
+            <a href="inference" class="Button">Live Inference</a>
+        </div>
+        <div id="numberDisplay1" class="NumberDisplay">0</div>
+        <div id="numberDisplay2" class="NumberDisplay">0</div>
+        <div id="numberDisplay3" class="NumberDisplay">0</div>
+        <div class="Rectangle3">How many people in India live with hearing <br>disabilities, leaving the majority without <br>access to effective communication methods?</div>
+        <div class="Rectangle4">What percentage of hearing-disabled <br>children in India remain illiterate or <br>drop out of school due to <br>communication barriers?</div>
+        <div class="Rectangle5">What is the estimated number of ISL interpreters available <br>for the 10-20 lakh hearing-impaired people in India, <br>making spoken content largely inaccessible to them?</div>
+        <hr class="Line1"> 
+        <hr class="Line2">
+        <hr class="Line3">
+    </div>
+    <script>
+        // Animation for first number container
+        var displayElement1 = document.getElementById('numberDisplay1');
+        var number1 = 0;
+        function increaseNumber1() {
+            if (number1 <= 63) {
+                displayElement1.textContent = formatNumber(number1, 'millions');
+                number1 += 0.5;
+                setTimeout(increaseNumber1, 0.005);
+            }
+        }
+        increaseNumber1();
+    
+        // Animation for second number container
+        var displayElement2 = document.getElementById('numberDisplay2');
+        var number2 = 0;
+        function increaseNumber2() {
+            if (number2 <= 98) { // Adjust the limit as needed
+                displayElement2.textContent = formatNumber(number2, 'thousands');
+                number2 += 1; // Adjust increment amount as needed
+                setTimeout(increaseNumber2, 0.01);
+            }
+        }
+        increaseNumber2();
+    
+        // Animation for third number container
+        var displayElement3 = document.getElementById('numberDisplay3');
+        var number3 = 0;
+        function increaseNumber3() {
+            if (number3 <= 100) { // Adjust the limit as needed
+                displayElement3.textContent = formatNumber(number3, 'normal');
+                number3 += 1; // Adjust increment amount as needed
+                setTimeout(increaseNumber3, 0.005);
+            }
+        }
+        increaseNumber3();
+    
+        function formatNumber(num, type) {
+            switch (type) {
+                case 'millions':
+                    return (num) + 'L+';
+                case 'thousands':
+                    return (num) + '%';
+                default:
+                    return num.toLocaleString() + 's';
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket</title>
+    <link rel="stylesheet" href="static/liveInference.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <div class="Desktop1">
+        <div class="Rectangle2"></div>
+        <div class="GlobalImpact">
+            <a href="impact" class="Button">Global Impact</a>
+        </div>
+        <div class="OurVision">
+            <a href="vision" class="Button">Our Vision</a>
+        </div>
+        <div class="TryNow">
+            <a href="trynow" class="Button">Sample Videos</a>
+        </div>
+        <div class="Inference">
+            <a href="inference" class="Button">Live Inference</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section-container" id="section1Container">
+            <section id="section1">
+                <div class="box1">
+                    <video id="video" autoplay playsinline muted></video>
+                </div>
+                <div class="box2">
+                    <h4 id="label">Label: </h4>
+                    <h4 id="certainty">Certainty: </h4>
+                    <h4 id="sentence">Sentence: </h4>
+                </div>
+                <div class="box3">
+                    Disclaimer: This is a prototype and may not be accurate, we are using an optimized version of the model for real-time inference as it becomes too much for the web server to handle the original model, the results may vary from the original model and may not be completely accurate. We only display the label when the certainty is above 70% to improve the accuracy of the results.
+                </div> 
+            </section>
+        </div>
+    </div>
+    <script>
+        const labelElement = document.getElementById('label');
+        const certaintyElement = document.getElementById('certainty');
+        const sentenceElement = document.getElementById('sentence');
+        const videoElement = document.getElementById('video');
+
+        let streaming = false;
+        let videoStream;
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+                videoStream = stream;
+                videoElement.addEventListener('canplay', () => {
+                    if (!streaming) {
+                        streaming = true;
+                        setInterval(sendFrame, 1000); // Set the interval based on your needs
+                    }
+                });
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+                labelElement.innerText = 'Error accessing camera';
+                certaintyElement.innerText = '';
+            }
+        }
+
+        startCamera();
+
+        function sendFrame() {
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(blob => {
+                const formData = new FormData();
+                formData.append('frame', blob, 'frame.jpg');
+
+                fetch('/process_frame', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    labelElement.innerText = `Label: ${data.label}`;
+                    certaintyElement.innerText = `Certainty: ${data.certainty}%`;
+                    sentenceElement.innerText = `Sentence: ${data.sentence}`;
+                })
+                .catch(error => console.error('Error processing frame:', error));
+            }, 'image/jpeg');
+        }
+    </script>
+</body>
+</html>

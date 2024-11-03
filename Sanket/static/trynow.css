@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.Rectangle2 {
+    width: 100%;
+    height: 12%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #025464;
+}
+.Inference{
+    width: 13%;
+    height: 6.2963%;
+    left: 38%;
+    top: 3.25%;
+    position: absolute;
+    color: black;
+    font-size: 120.5%;  
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.Button {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #025464;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.Button:hover {
+    background-color: white;
+    color: black;
+}
+
+.GlobalImpact, .OurVision, .TryNow {
+    width: 13%;
+    height: 6%;
+    position: absolute;
+    top: 3.25%;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.GlobalImpact { left: 2.5%; }
+.OurVision { left: 15%; width: 10.9%; }
+.TryNow { left: 25%; width: 13%; }
+
+.text-rectangle {
+    width: 30%;
+    height: 60px;
+    position: relative; 
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    visibility: hidden; /* Set this to visible when needed */
+}
+
+.container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.section-container {
+    display: none;
+}
+
+/* Input Options */
+#inputOptions {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    text-align: center;
+}
+
+input[type="text"], select {
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="text"] {
+    margin-right: 10px;
+    width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #025464;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #003f53;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+    gap: 10px; /* Space between grid items */
+    padding: 100px;
+}
+
+.video-item video {
+    width: 100%; /* Makes video responsive */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Optional: adds rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow */
+}
+
+/* Box Styles */
+.box1, .box2, .box3, .box4 {
+    position: absolute;
+    background: #F9FEFF;
+    backdrop-filter: blur(4px);
+    border: 5px solid #ff8c00;
+    border-radius: 16px;
+    padding: 15px;
+}
+
+.box1 {
+    width: 45%;
+    height: 70%;
+    left: 8%;
+    top: 37%;
+}
+
+.box2 {
+    width: 35%;
+    height: 13%;
+    left: 60%;
+    top: 37%;
+    font-size: 60%;
+}
+
+.box3 {
+    width: 35%;
+    height: 45%;
+    left: 60%;
+    top: 57%;
+    border: 1px solid #ff8c00;
+    font-size: 60%;
+}
+
+.box4 {
+    width: 45%;
+    height: 70%;
+    left: 8%;
+    top: 45%;
+}

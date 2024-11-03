@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="static/trynow.css">
+</head>
+<body>
+    <div class="Rectangle2"></div>
+    <div class="GlobalImpact">
+        <a href="impact" class="Button">Global Impact</a>
+    </div>
+    <div class="OurVision">
+        <a href="vision" class="Button">Our Vision</a>
+    </div>
+    <div class="TryNow">
+        <a href="trynow" class="Button">Sample Videos</a>
+    </div>
+    <div class="Inference">
+        <a href="inference" class="Button">Live Inference</a>
+    </div>
+    <div class="text-rectangle" id="textRectangle">Click a video to see its description.</div>
+    <div class="video-grid">
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\dog.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/dog.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\horse.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/horse.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\afternoon.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/afternoon.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\narrow.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/narrow.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\warm.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/warm.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\young.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/young.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\famous.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/famous.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\female.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/female.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\soft.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/soft.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\sunday.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/sunday.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\green.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/green.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\photograph.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/photograph.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\happy.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/happy.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\husband.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/husband.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video controls onclick="sendVideoPath('SignSpeak-Converter\GCP Deployment\static\\assets\\videos\\wife.MOV')">
+                <source src="{{ url_for('static', filename='assets/videos/wife.MOV') }}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    
+    <script>
+        function sendVideoPath(videoPath) {
+            const relativePath = videoPath.split('static\\')[1];
+            fetch('/predict_label', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ video_path: 'static\\' + relativePath })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server if needed
+                console.log('Prediction:', data.predicted_label);
+                const rectangle = document.getElementById('textRectangle');
+                const text = "Predicted Label: " + data.predicted_label;
+                rectangle.textContent = text; // Update text with prediction
+                rectangle.style.visibility = 'visible'; // Show the rectangle
+                setTimeout(() => {
+                    rectangle.style.visibility = 'hidden'; // Hide after 5 seconds
+                }, 5000);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
